@@ -2,11 +2,7 @@ import { createServerClient } from '@supabase/ssr'
 import { NextResponse, type NextRequest } from 'next/server'
 
 export async function updateSession(request: NextRequest) {
-  // Allow local development bypass
-  const adminBypass = request.cookies.get('admin_bypass')?.value
-  if (adminBypass === 'true') {
-    return NextResponse.next({ request })
-  }
+  // Bypass removed for security
 
   // Guard: if Supabase credentials are not configured, pass through all requests.
   // This allows public pages to remain accessible in unconfigured environments.

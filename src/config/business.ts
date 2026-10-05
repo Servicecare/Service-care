@@ -28,5 +28,6 @@ export const businessConfig = {
     facebook: "[CLIENT TO CONFIRM]",
     instagram: "[CLIENT TO CONFIRM]",
     linkedin: "[CLIENT TO CONFIRM]",
+    twitter: "[CLIENT TO CONFIRM]",
   },
 };

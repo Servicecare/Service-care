@@ -32,18 +32,20 @@ export default function LoginPage() {
 
     setIsLoading(true);
 
-    // Development bypass
-    if (email === "admin@lifecare.com" && password === "admin123") {
-      document.cookie = "admin_bypass=true; path=/";
-      router.push("/admin");
-      return;
-    }
-    
-    // Simulate real delay for UX if bypass fails
-    setTimeout(() => {
+    const supabase = createClient();
+    const { error: signInError } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+
+    if (signInError) {
       setError("Unable to sign you in. Please check your details and try again.");
       setIsLoading(false);
-    }, 1000);
+      return;
+    }
+
+    router.push("/admin");
+    router.refresh();
   };
 
   const handleGoogleLogin = async () => {

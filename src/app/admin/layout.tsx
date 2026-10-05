@@ -10,32 +10,28 @@ export default async function AdminLayout({
   children: React.ReactNode;
 }) {
   const cookieStore = await cookies();
-  const adminBypass = cookieStore.get('admin_bypass')?.value === 'true';
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  if (!supabaseUrl || supabaseUrl === 'https://your-project.supabase.co') {
+    redirect("/login");
+  }
 
-  if (!adminBypass) {
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    if (!supabaseUrl || supabaseUrl === 'https://your-project.supabase.co') {
-      redirect("/login");
-    }
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
-    const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+  if (!user) {
+    redirect("/login");
+  }
 
-    if (!user) {
-      redirect("/login");
-    }
+  // Explicit server-side validation against admin_users table
+  const { data: adminUser } = await supabase
+    .from('admin_users')
+    .select('id')
+    .eq('email', user.email)
+    .single();
 
-    // Explicit server-side validation against admin_users table
-    const { data: adminUser } = await supabase
-      .from('admin_users')
-      .select('id')
-      .eq('email', user.email)
-      .single();
-
-    if (!adminUser) {
-      console.warn(`Unauthorized admin access attempt by ${user.email}`);
-      redirect("/login?error=unauthorized");
-    }
+  if (!adminUser) {
+    console.warn(`Unauthorized admin access attempt by ${user?.email}`);
+    redirect("/login?error=unauthorized");
   }
 
   return (
