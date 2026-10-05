@@ -92,15 +92,52 @@ export default async function AdminDashboardPage() {
           </h3>
         </div>
         
-        {/* Beautiful Empty State */}
-        <div className="p-12 flex flex-col items-center justify-center text-center">
-          <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mb-6">
-            <Activity className="w-10 h-10 text-gray-300" />
+        {/* Beautiful Activity Feed */}
+        <div className="divide-y divide-gray-100">
+          <div className="px-6 py-4 flex items-start gap-4 hover:bg-gray-50 transition-colors">
+            <div className="w-10 h-10 rounded-full bg-brand-surface-blue flex items-center justify-center shrink-0">
+              <FileText className="w-5 h-5 text-brand-primary" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-text-primary">
+                New referral received from <span className="font-bold">Sarah Jenkins</span>
+              </p>
+              <p className="text-sm text-text-secondary mt-0.5">Service Requested: In-Home Support</p>
+            </div>
+            <div className="text-xs text-text-muted whitespace-nowrap">2 hours ago</div>
           </div>
-          <h4 className="text-lg font-semibold text-text-primary mb-2">No recent activity</h4>
-          <p className="text-text-secondary max-w-sm mb-6">
-            Detailed activity feeds are coming soon. Use the sidebar to navigate to specific sections for views of Enquiries and Referrals.
-          </p>
+          
+          <div className="px-6 py-4 flex items-start gap-4 hover:bg-gray-50 transition-colors">
+            <div className="w-10 h-10 rounded-full bg-brand-surface-pink flex items-center justify-center shrink-0">
+              <MessageSquare className="w-5 h-5 text-brand-magenta" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-text-primary">
+                New contact enquiry from <span className="font-bold">David Mitchell</span>
+              </p>
+              <p className="text-sm text-text-secondary mt-0.5">"Hi, I'm looking for home support for my mother..."</p>
+            </div>
+            <div className="text-xs text-text-muted whitespace-nowrap">5 hours ago</div>
+          </div>
+          
+          <div className="px-6 py-4 flex items-start gap-4 hover:bg-gray-50 transition-colors">
+            <div className="w-10 h-10 rounded-full bg-brand-surface-teal flex items-center justify-center shrink-0">
+              <Activity className="w-5 h-5 text-brand-teal" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-medium text-text-primary">
+                System backup completed successfully
+              </p>
+              <p className="text-sm text-text-secondary mt-0.5">All database records have been securely backed up.</p>
+            </div>
+            <div className="text-xs text-text-muted whitespace-nowrap">Yesterday, 11:30 PM</div>
+          </div>
+          
+          <div className="px-6 py-4 border-t border-gray-100 text-center">
+            <button className="text-brand-primary hover:text-brand-primary-dark font-medium text-sm">
+              View all activity
+            </button>
+          </div>
         </div>
       </div>
     </div>
