@@ -1,6 +1,7 @@
 import { businessConfig } from "@/config/business";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { CheckCircle2 } from "lucide-react";
+import Image from "next/image";
 
 export const metadata = {
   title: `Our Services | ${businessConfig.companyName}`,
@@ -12,11 +13,22 @@ export default function ServicesPage() {
     <div className="flex flex-col min-h-[70vh]">
       <AnimatedSection className="bg-brand-surface-blue pt-16 pb-12 lg:pt-24 lg:pb-20 border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <h1 className="text-4xl sm:text-5xl font-bold font-heading mb-6 text-text-primary text-balance">Our Services</h1>
-            <p className="text-lg text-text-secondary text-balance">
-              Tailored support to empower your independence and enhance your quality of life.
-            </p>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-2xl">
+              <h1 className="text-4xl sm:text-5xl font-bold font-heading mb-6 text-text-primary text-balance">Our Services</h1>
+              <p className="text-lg text-text-secondary text-balance">
+                Tailored support to empower your independence and enhance your quality of life.
+              </p>
+            </div>
+            <div className="relative h-64 sm:h-80 lg:h-96 w-full rounded-2xl overflow-hidden shadow-lg border border-brand-border hidden md:block">
+              <Image 
+                src="/images/services.jpg" 
+                alt="Healthcare worker assisting a person in a wheelchair" 
+                fill 
+                className="object-cover" 
+                priority
+              />
+            </div>
           </div>
         </div>
       </AnimatedSection>

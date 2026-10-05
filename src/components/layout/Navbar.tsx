@@ -41,7 +41,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex lg:gap-x-12">
+        <nav className="hidden md:flex md:gap-x-6 lg:gap-x-12">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
             return (
@@ -61,10 +61,10 @@ export function Navbar() {
         </nav>
 
         {/* CTA & Mobile Menu */}
-        <div className="flex flex-1 items-center justify-end gap-4 lg:gap-x-6">
+        <div className="flex flex-1 items-center justify-end gap-4 md:gap-x-4 lg:gap-x-6">
           <Link 
             href="/contact" 
-            className="hidden rounded-full bg-brand-primary px-6 py-2.5 text-sm font-semibold text-brand-warm-white shadow-sm hover:bg-brand-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-all active:scale-[0.98] lg:block"
+            className="hidden rounded-full bg-brand-primary px-4 lg:px-6 py-2 lg:py-2.5 text-sm font-semibold text-brand-warm-white shadow-sm hover:bg-brand-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-all active:scale-[0.98] md:block"
           >
             Get Support
           </Link>

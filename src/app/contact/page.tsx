@@ -2,6 +2,7 @@ import { businessConfig } from "@/config/business";
 import { ContactForm } from "@/components/forms/ContactForm";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { MapPin, Phone, Mail } from "lucide-react";
+import Image from "next/image";
 
 export const metadata = {
   title: `Contact Us | ${businessConfig.companyName}`,
@@ -73,6 +74,15 @@ export default function ContactPage() {
                   </div>
                 </li>
               </ul>
+
+              <div className="mt-12 relative h-64 sm:h-80 w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100 hidden md:block">
+                <Image 
+                  src="/images/contact.jpg" 
+                  alt="Friendly customer support representative" 
+                  fill 
+                  className="object-cover" 
+                />
+              </div>
             </div>
             
             <div className="bg-white p-6 sm:p-8 rounded-2xl shadow-sm border border-gray-200">

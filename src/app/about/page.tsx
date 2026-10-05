@@ -1,5 +1,6 @@
 import { businessConfig } from "@/config/business";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import Image from "next/image";
 
 export const metadata = {
   title: `About Us | ${businessConfig.companyName}`,
@@ -22,18 +23,29 @@ export default function AboutPage() {
       
       <AnimatedSection className="py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="prose prose-lg prose-brand max-w-prose text-text-secondary">
-            <p>
-              We are an authentic, dedicated team providing premium care in {businessConfig.serviceAreas[0]} and surrounding areas.
-            </p>
-            <div className="bg-brand-surface-blue p-6 rounded-xl border border-brand-border my-8">
-              <p className="text-sm text-brand-primary-dark font-medium m-0">
-                [CLIENT TO CONFIRM: Add specific founder experience, staff qualifications, and history here.]
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div className="prose prose-lg prose-brand max-w-prose text-text-secondary">
+              <p>
+                We are an authentic, dedicated team providing premium care in {businessConfig.serviceAreas[0]} and surrounding areas.
+              </p>
+              <div className="bg-brand-surface-blue p-6 rounded-xl border border-brand-border my-8">
+                <p className="text-sm text-brand-primary-dark font-medium m-0">
+                  [CLIENT TO CONFIRM: Add specific founder experience, staff qualifications, and history here.]
+                </p>
+              </div>
+              <p>
+                Our mission is to empower individuals to live their lives to the fullest, offering support that respects their dignity and choices. We believe in a holistic approach to wellbeing.
               </p>
             </div>
-            <p>
-              Our mission is to empower individuals to live their lives to the fullest, offering support that respects their dignity and choices. We believe in a holistic approach to wellbeing.
-            </p>
+            
+            <div className="relative h-[400px] lg:h-[500px] w-full rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+              <Image 
+                src="/images/about.jpg" 
+                alt="Professional healthcare team smiling in a clinic" 
+                fill 
+                className="object-cover" 
+              />
+            </div>
           </div>
         </div>
       </AnimatedSection>

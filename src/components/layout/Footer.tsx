@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { businessConfig } from "@/config/business";
 import Image from "next/image";
+import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 export function Footer() {
   const pathname = usePathname();
@@ -78,10 +79,27 @@ export function Footer() {
           <p className="text-xs leading-5 text-brand-surface-blue opacity-80">
             &copy; {currentYear} {businessConfig.legalName}. All rights reserved. ABN: {businessConfig.abn}.
           </p>
-          <div className="flex gap-4">
+          <div className="flex gap-6 items-center">
              {/* Render Socials ONLY if configured */}
              {businessConfig.socialLinks?.facebook && !businessConfig.socialLinks.facebook.includes("[CLIENT TO CONFIRM]") && (
-                <a href={businessConfig.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-brand-surface-blue opacity-80 hover:opacity-100 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-sm">Facebook</a>
+                <a href={businessConfig.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-brand-surface-blue opacity-80 hover:opacity-100 hover:text-white transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-sm" aria-label="Facebook">
+                  <Facebook className="w-5 h-5" />
+                </a>
+             )}
+             {businessConfig.socialLinks?.instagram && !businessConfig.socialLinks.instagram.includes("[CLIENT TO CONFIRM]") && (
+                <a href={businessConfig.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-brand-surface-blue opacity-80 hover:opacity-100 hover:text-white transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-sm" aria-label="Instagram">
+                  <Instagram className="w-5 h-5" />
+                </a>
+             )}
+             {businessConfig.socialLinks?.linkedin && !businessConfig.socialLinks.linkedin.includes("[CLIENT TO CONFIRM]") && (
+                <a href={businessConfig.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-brand-surface-blue opacity-80 hover:opacity-100 hover:text-white transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-sm" aria-label="LinkedIn">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+             )}
+             {businessConfig.socialLinks?.twitter && !businessConfig.socialLinks.twitter.includes("[CLIENT TO CONFIRM]") && (
+                <a href={businessConfig.socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-brand-surface-blue opacity-80 hover:opacity-100 hover:text-white transition-opacity focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-sm" aria-label="Twitter">
+                  <Twitter className="w-5 h-5" />
+                </a>
              )}
           </div>
         </div>
