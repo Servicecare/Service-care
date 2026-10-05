@@ -14,23 +14,24 @@
   --color-brand-pure-white: #FFFFFF;
 
   /* Surfaces */
-  --color-surface: #FFFFFF;
-  --color-surface-soft: #FAFCFE;
-  --color-surface-blue: #F1F7FC;
-  --color-surface-teal: #F0FAF9;
-  --color-surface-pink: #FFF4F8;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-surface-soft: #FAFCFE;
+  --color-brand-surface-blue: #F1F7FC;
+  --color-brand-surface-teal: #F0FAF9;
+  --color-brand-surface-pink: #FFF4F8;
 
   /* Text & Border */
   --color-text-primary: #102033;
   --color-text-secondary: #526273;
-  --color-text-muted: #718096;
+  --color-brand-muted: #718096;
+  --color-brand-border: #E2E8F0;
   --color-border: #E2E8F0;
   
   /* Semantic */
   --color-success: #149C97;
   --color-warning: #F59E0B;
   --color-error: #E53935;
-  --color-focus: #1478C9;
+  --color-brand-focus: #1478C9;
   
   /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
