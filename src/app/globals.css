@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Palette */
+  --color-brand-50: #f2f6f5;
+  --color-brand-100: #e0ebe7;
+  --color-brand-200: #c2d6cf;
+  --color-brand-300: #99bcaf;
+  --color-brand-400: #6c9b8b;
+  --color-brand-500: #2d5d4e;
+  --color-brand-600: #214c3f;
+  --color-brand-700: #1b3d33;
+  --color-brand-800: #163028;
+  --color-brand-900: #122721;
+
+  /* Accent Palette */
+  --color-accent-50: #fdf6f4;
+  --color-accent-100: #faebe6;
+  --color-accent-200: #f3d2c8;
+  --color-accent-300: #ecb0a0;
+  --color-accent-400: #e4866f;
+  --color-accent-500: #d96c4e;
+  --color-accent-600: #c15031;
+  --color-accent-700: #a13e25;
+  --color-accent-800: #853521;
+  --color-accent-900: #6f2f1f;
+
+  /* Semantic */
+  --color-surface: #ffffff;
+  --color-background: #fafafa;
+  --color-text-primary: #1e293b;
+  --color-text-secondary: #475569;
+  
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-outfit), var(--font-sans);
+}
+
+:root {
+  --background: var(--color-background);
+  --foreground: var(--color-text-primary);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
