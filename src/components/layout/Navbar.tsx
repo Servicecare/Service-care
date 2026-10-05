@@ -41,7 +41,7 @@ export function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex md:gap-x-6 lg:gap-x-12">
+        <nav className="hidden md:flex md:gap-x-3 lg:gap-x-8 xl:gap-x-12">
           {navLinks.map((link) => {
             const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
             return (
@@ -49,7 +49,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium leading-6 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-md px-2 py-1 -mx-2",
+                  "text-sm font-medium leading-6 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-md px-2 py-1 -mx-2 whitespace-nowrap",
                   isActive ? "text-brand-primary font-semibold" : "text-text-primary hover:text-brand-blue"
                 )}
                 aria-current={isActive ? "page" : undefined}
@@ -61,10 +61,10 @@ export function Navbar() {
         </nav>
 
         {/* CTA & Mobile Menu */}
-        <div className="flex flex-1 items-center justify-end gap-4 md:gap-x-4 lg:gap-x-6">
+        <div className="flex flex-1 items-center justify-end gap-2 md:gap-x-4 lg:gap-x-6">
           <Link 
             href="/contact" 
-            className="hidden rounded-full bg-brand-primary px-4 lg:px-6 py-2 lg:py-2.5 text-sm font-semibold text-brand-warm-white shadow-sm hover:bg-brand-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-all active:scale-[0.98] md:block"
+            className="hidden whitespace-nowrap rounded-full bg-brand-primary px-4 lg:px-6 py-2 lg:py-2.5 text-sm font-semibold text-brand-warm-white shadow-sm hover:bg-brand-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-all active:scale-[0.98] md:block"
           >
             Get Support
           </Link>

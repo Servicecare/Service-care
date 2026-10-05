@@ -18,7 +18,7 @@ export function MobileNav() {
       <button 
         type="button" 
         onClick={() => setIsOpen(true)}
-        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-text-primary lg:hidden"
+        className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-text-primary md:hidden"
         aria-expanded={isOpen}
       >
         <span className="sr-only">Open main menu</span>
@@ -28,7 +28,7 @@ export function MobileNav() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            className="fixed inset-0 z-50 lg:hidden"
+            className="fixed inset-0 z-50 md:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
