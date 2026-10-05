@@ -11,7 +11,7 @@ export default async function AdminDashboardPage() {
   const cookieStore = await cookies();
   const adminBypass = cookieStore.get('admin_bypass')?.value === 'true';
 
-  let user = { email: "admin@lifecare.com" };
+  let userEmail = "admin@lifecare.com";
   let contactCount = 12;
   let referralCount = 5;
 
@@ -23,13 +23,13 @@ export default async function AdminDashboardPage() {
       redirect("/login");
     }
     
-    user = supaUser;
+    userEmail = supaUser.email || "Unknown User";
 
     // Explicitly verify authorization before data fetch
     const { data: adminUser } = await supabase
       .from('admin_users')
       .select('id')
-      .eq('email', user.email)
+      .eq('email', supaUser.email)
       .single();
 
     if (!adminUser) {
@@ -53,7 +53,7 @@ export default async function AdminDashboardPage() {
     <div className="max-w-6xl mx-auto">
       <div className="mb-8">
         <h1 className="text-3xl font-bold font-heading text-text-primary">Overview</h1>
-        <p className="text-text-secondary mt-1">Welcome back, {user.email}</p>
+        <p className="text-text-secondary mt-1">Welcome back, {userEmail}</p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
