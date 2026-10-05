@@ -62,31 +62,31 @@ export default function LoginPage() {
       <div className="hidden lg:flex lg:w-1/2 relative bg-brand-50 items-center justify-center p-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/care.jpg"
-            alt="Warm and caring support"
+            src="/images/admin_login_bg.jpg"
+            alt="Professional administrative setting"
             fill
-            className="object-cover opacity-90"
+            className="object-cover opacity-100"
             priority
           />
-          <div className="absolute inset-0 bg-brand-900/40 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-900/20 to-transparent" />
+          <div className="absolute inset-0 bg-brand-900/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-900/90 via-brand-900/40 to-brand-900/10" />
         </div>
         
-        <div className="relative z-10 w-full max-w-lg mt-auto text-white">
+        <div className="relative z-10 w-full max-w-lg mt-auto text-white mb-12">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-sm font-medium mb-6">
-              <ShieldCheck className="w-4 h-4" />
-              Secure Admin Portal
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold mb-8 shadow-xl">
+              <ShieldCheck className="w-4 h-4 text-brand-200" />
+              Secure Administrative Access
             </div>
-            <h1 className="text-4xl font-bold font-heading mb-4 text-balance">
-              Empowering your independence with premium care.
+            <h1 className="text-4xl lg:text-5xl font-bold font-heading mb-6 text-balance leading-tight">
+              Streamline your care operations.
             </h1>
-            <p className="text-lg text-brand-50 opacity-90 text-balance">
-              Manage operations, referrals, and enquiries securely for {businessConfig.companyName}.
+            <p className="text-lg text-brand-100 opacity-90 text-balance leading-relaxed max-w-md">
+              Securely manage enquiries, participant referrals, and daily operations for {businessConfig.companyName}.
             </p>
           </motion.div>
         </div>
