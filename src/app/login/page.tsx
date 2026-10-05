@@ -69,7 +69,7 @@ export default function LoginPage() {
             priority
           />
           <div className="absolute inset-0 bg-brand-primary-dark/60 mix-blend-multiply" />
-          <div className="absolute inset-0 bg-gradient-to-t from-brand-900/90 via-brand-900/40 to-brand-900/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-primary-dark/90 via-brand-primary-dark/40 to-brand-primary-dark/10" />
         </div>
         
         <div className="relative z-10 w-full max-w-lg mt-auto text-white mb-12">
