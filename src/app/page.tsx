@@ -10,43 +10,53 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative w-full bg-brand-50 pt-12 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12">
+      <section className="relative w-full bg-gradient-to-br from-brand-50 via-white to-brand-50 pt-16 pb-20 lg:pt-24 lg:pb-32 overflow-hidden">
+        {/* Decorative background blob */}
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand-200/50 rounded-full blur-3xl opacity-60 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-brand-300/30 rounded-full blur-3xl opacity-60 pointer-events-none" />
+        
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           <AnimatedHero className="max-w-2xl lg:w-1/2">
             <AnimatedHeroItem>
-              <h1 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-text-primary text-balance mb-6">
-                Premium, compassionate care designed for your independence.
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100/80 text-brand-700 text-sm font-semibold mb-6 shadow-sm border border-brand-200/50">
+                <Heart className="w-4 h-4" />
+                <span>Trusted Care Services</span>
+              </div>
+              <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary text-balance mb-6 leading-[1.15]">
+                Empowering your independence with <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-brand-800">premium care.</span>
               </h1>
             </AnimatedHeroItem>
             <AnimatedHeroItem>
-              <p className="mt-4 text-lg leading-8 text-text-secondary text-balance mb-8 max-w-xl">
-                At {businessConfig.companyName}, we provide exceptional, tailored support services to help you or your loved ones live with dignity and confidence across {businessConfig.serviceAreas[0]} and surrounding regions.
+              <p className="mt-6 text-lg lg:text-xl leading-8 text-text-secondary text-balance mb-10 max-w-xl">
+                {businessConfig.companyName} provides high-quality, personalised support to help you live life with confidence in {businessConfig.serviceAreas[0]} and surrounding areas.
               </p>
             </AnimatedHeroItem>
             <AnimatedHeroItem>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-4 sm:items-center">
                 <Link 
                   href="/contact" 
-                  className="rounded-full bg-brand-600 px-8 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-all active:scale-[0.98]"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-8 py-4 text-center text-sm font-semibold text-white shadow-lg shadow-brand-500/30 hover:bg-brand-700 hover:shadow-brand-500/40 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-all active:scale-[0.98]"
                 >
                   Get Started
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link 
                   href="/services" 
-                  className="rounded-full border border-brand-200 bg-white px-8 py-3.5 text-center text-sm font-semibold text-text-primary hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-all"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-brand-200 bg-white px-8 py-4 text-center text-sm font-semibold text-text-primary hover:bg-brand-50 hover:border-brand-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-all"
                 >
                   Explore Services
                 </Link>
               </div>
             </AnimatedHeroItem>
           </AnimatedHero>
-          <div className="lg:w-1/2 w-full mt-8 lg:mt-0 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl aspect-[4/3] lg:aspect-square max-h-[500px] w-full bg-gray-200">
+          <div className="lg:w-1/2 w-full mt-12 lg:mt-0 relative">
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand-100 to-brand-50 rounded-[2.5rem] transform rotate-3 scale-[1.02] -z-10" />
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-brand-900/10 aspect-[4/3] lg:aspect-square max-h-[550px] w-full bg-gray-200 border-4 border-white">
               <Image 
                 src="/images/hero.jpg"
                 alt="A warm, professional Australian healthcare worker smiling and assisting an elderly person in a bright living room"
                 fill
-                className="object-cover"
+                className="object-cover hover:scale-105 transition-transform duration-700 ease-out"
                 priority
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
