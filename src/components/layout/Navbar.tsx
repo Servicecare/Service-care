@@ -32,9 +32,9 @@ export function Navbar() {
             <Image 
               src="/brand/service-for-life-care-logo.png" 
               alt={`${businessConfig.companyName} Logo`}
-              width={240}
-              height={70}
-              className="h-12 w-auto object-contain"
+              width={320}
+              height={94}
+              className="h-16 md:h-20 w-auto object-contain"
               priority
             />
           </Link>

@@ -23,9 +23,9 @@ export function Footer() {
               <Image 
                 src="/brand/service-for-life-care-logo.png" 
                 alt={`${businessConfig.companyName} Logo`}
-                width={200}
-                height={58}
-                className="h-12 w-auto object-contain brightness-0 invert"
+                width={320}
+                height={94}
+                className="h-16 md:h-20 w-auto object-contain brightness-0 invert"
                 priority={false}
               />
             </Link>
