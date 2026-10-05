@@ -1,10 +1,25 @@
+import { createClient } from "@/lib/supabase/server";
 import { FileText } from "lucide-react";
 
 export const metadata = {
   title: "Referrals | Admin Dashboard",
 };
 
-export default function ReferralsPage() {
+export default async function ReferralsPage() {
+  const supabase = await createClient();
+  
+  // Fetch from referrals
+  const { data: referrals, error } = await supabase
+    .from('referrals')
+    .select('*')
+    .order('created_at', { ascending: false });
+
+  if (error) {
+    console.error("Error fetching referrals:", error);
+  }
+
+  const data = referrals || [];
+
   return (
     <div className="max-w-6xl mx-auto">
       <div className="mb-8 flex justify-between items-center">
@@ -27,54 +42,43 @@ export default function ReferralsPage() {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
-              <tr className="hover:bg-gray-50 transition-colors">
-                <td className="px-6 py-4 font-medium text-text-primary">Sarah Jenkins</td>
-                <td className="px-6 py-4 text-text-secondary">In-Home Support</td>
-                <td className="px-6 py-4 text-text-secondary">Oct 4, 2026</td>
-                <td className="px-6 py-4">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-100 text-amber-800">
-                    Pending
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-right">
-                  <button className="text-brand-primary hover:text-brand-primary-dark font-medium text-sm">Review</button>
-                </td>
-              </tr>
-              <tr className="hover:bg-gray-50 transition-colors">
-                <td className="px-6 py-4 font-medium text-text-primary">Michael Chen</td>
-                <td className="px-6 py-4 text-text-secondary">Community Access</td>
-                <td className="px-6 py-4 text-text-secondary">Oct 2, 2026</td>
-                <td className="px-6 py-4">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-brand-surface-teal text-brand-teal border border-brand-teal/20">
-                    Approved
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-right">
-                  <button className="text-brand-primary hover:text-brand-primary-dark font-medium text-sm">Review</button>
-                </td>
-              </tr>
-              <tr className="hover:bg-gray-50 transition-colors">
-                <td className="px-6 py-4 font-medium text-text-primary">Emma Thompson</td>
-                <td className="px-6 py-4 text-text-secondary">Capacity Building</td>
-                <td className="px-6 py-4 text-text-secondary">Sep 28, 2026</td>
-                <td className="px-6 py-4">
-                  <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
-                    Archived
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-right">
-                  <button className="text-brand-primary hover:text-brand-primary-dark font-medium text-sm">Review</button>
-                </td>
-              </tr>
+              {data.length === 0 ? (
+                <tr>
+                  <td colSpan={5} className="px-6 py-8 text-center text-text-secondary">
+                    No referrals found.
+                  </td>
+                </tr>
+              ) : (
+                data.map((referral) => (
+                  <tr key={referral.id} className="hover:bg-gray-50 transition-colors">
+                    <td className="px-6 py-4 font-medium text-text-primary">
+                      {referral.participant_name}
+                      <div className="text-xs text-text-muted mt-0.5">Referred by: {referral.referrer_name}</div>
+                    </td>
+                    <td className="px-6 py-4 text-text-secondary">{referral.service_required}</td>
+                    <td className="px-6 py-4 text-text-secondary">
+                      {new Date(referral.created_at).toLocaleString()}
+                    </td>
+                    <td className="px-6 py-4">
+                      <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                        referral.status === 'new' 
+                          ? 'bg-amber-100 text-amber-800' 
+                          : 'bg-brand-surface-teal text-brand-teal border border-brand-teal/20'
+                      }`}>
+                        {referral.status === 'new' ? 'Pending' : referral.status}
+                      </span>
+                    </td>
+                    <td className="px-6 py-4 text-right">
+                      <button className="text-brand-primary hover:text-brand-primary-dark font-medium text-sm">Review</button>
+                    </td>
+                  </tr>
+                ))
+              )}
             </tbody>
           </table>
         </div>
         <div className="px-6 py-4 border-t border-gray-200 bg-gray-50 flex items-center justify-between">
-          <span className="text-sm text-text-secondary">Showing 1 to 3 of 5 referrals</span>
-          <div className="flex gap-2">
-            <button className="px-3 py-1 border border-gray-300 rounded text-sm font-medium text-text-secondary bg-white hover:bg-gray-50 disabled:opacity-50" disabled>Previous</button>
-            <button className="px-3 py-1 border border-gray-300 rounded text-sm font-medium text-text-secondary bg-white hover:bg-gray-50">Next</button>
-          </div>
+          <span className="text-sm text-text-secondary">Showing {data.length} referrals</span>
         </div>
       </div>
     </div>

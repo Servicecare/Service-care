@@ -9,8 +9,7 @@
   - **Resolution**: Removed the backdoor. Implemented actual Supabase `signInWithPassword` email/password login.
 - **[P0] Authorization Bypass in Middleware**: `src/lib/supabase/middleware.ts` was honoring the `admin_bypass` cookie, allowing complete bypass of Next.js route protections.
   - **Resolution**: Removed the backdoor from `middleware.ts` and `layout.tsx`.
-- **[P1] Broken Middleware File**: The middleware was incorrectly named `proxy.ts` in `src/`, meaning Next.js was completely ignoring route protections for the Admin area on some environments depending on config.
-  - **Resolution**: Renamed `src/proxy.ts` to `src/middleware.ts` to ensure Next.js standard middleware execution protects all `/admin` sub-routes.
+- **[RESOLVED] Broken Proxy (Middleware)**: Cleaned `src/proxy.ts` (Next.js 16 proxy) of any development backdoors and ensured all `/admin` routes correctly pass through it.
 
 ## 2. API Security
 - **Endpoints**: `src/app/actions/contact.ts` and `src/app/actions/referral.ts`

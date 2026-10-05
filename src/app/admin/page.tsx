@@ -1,53 +1,74 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 import { MessageSquare, Activity, FileText } from "lucide-react";
-import { cookies } from "next/headers";
 
 export const metadata = {
   title: "Admin Dashboard | Service for Life Care",
 };
 
 export default async function AdminDashboardPage() {
-  const cookieStore = await cookies();
-  const adminBypass = cookieStore.get('admin_bypass')?.value === 'true';
+  const supabase = await createClient();
+  const { data: { user: supaUser } } = await supabase.auth.getUser();
 
-  let userEmail = "admin@lifecare.com";
-  let contactCount = 12;
-  let referralCount = 5;
-
-  if (!adminBypass) {
-    const supabase = await createClient();
-    const { data: { user: supaUser } } = await supabase.auth.getUser();
-
-    if (!supaUser) {
-      redirect("/login");
-    }
-    
-    userEmail = supaUser.email || "Unknown User";
-
-    // Explicitly verify authorization before data fetch
-    const { data: adminUser } = await supabase
-      .from('admin_users')
-      .select('id')
-      .eq('email', supaUser.email)
-      .single();
-
-    if (!adminUser) {
-      redirect("/login?error=unauthorized");
-    }
-
-    // Fetch summary data securely
-    const { count: cCount } = await supabase
-      .from('contact_submissions')
-      .select('*', { count: 'exact', head: true });
-    
-    const { count: rCount } = await supabase
-      .from('referrals')
-      .select('*', { count: 'exact', head: true });
-      
-    contactCount = cCount || 0;
-    referralCount = rCount || 0;
+  if (!supaUser) {
+    redirect("/login");
   }
+  
+  const userEmail = supaUser.email || "Unknown User";
+
+  // Explicitly verify authorization before data fetch
+  const { data: adminUser } = await supabase
+    .from('admin_users')
+    .select('id')
+    .eq('email', supaUser.email)
+    .single();
+
+  if (!adminUser) {
+    redirect("/login?error=unauthorized");
+  }
+
+  // Fetch summary data securely
+  const { count: cCount } = await supabase
+    .from('contact_submissions')
+    .select('*', { count: 'exact', head: true });
+  
+  const { count: rCount } = await supabase
+    .from('referrals')
+    .select('*', { count: 'exact', head: true });
+    
+  const contactCount = cCount || 0;
+  const referralCount = rCount || 0;
+
+  // Fetch recent activity securely
+  const { data: recentContacts } = await supabase
+    .from('contact_submissions')
+    .select('id, name, message, created_at')
+    .order('created_at', { ascending: false })
+    .limit(3);
+
+  const { data: recentReferrals } = await supabase
+    .from('referrals')
+    .select('id, participant_name, service_required, created_at')
+    .order('created_at', { ascending: false })
+    .limit(3);
+
+  // Combine and sort recent activity
+  const activities = [
+    ...(recentContacts || []).map(c => ({
+      id: `contact-${c.id}`,
+      type: 'contact',
+      title: `New contact enquiry from ${c.name}`,
+      subtitle: `"${c.message.substring(0, 50)}${c.message.length > 50 ? '...' : ''}"`,
+      date: new Date(c.created_at)
+    })),
+    ...(recentReferrals || []).map(r => ({
+      id: `referral-${r.id}`,
+      type: 'referral',
+      title: `New referral received for ${r.participant_name}`,
+      subtitle: `Service Requested: ${r.service_required}`,
+      date: new Date(r.created_at)
+    }))
+  ].sort((a, b) => b.date.getTime() - a.date.getTime()).slice(0, 5);
 
   return (
     <div className="max-w-6xl mx-auto">
@@ -67,7 +88,7 @@ export default async function AdminDashboardPage() {
             </div>
             <h2 className="text-sm font-semibold text-text-secondary uppercase tracking-wider">Total Referrals</h2>
           </div>
-          <p className="text-4xl font-bold text-text-primary relative z-10">{referralCount ?? 0}</p>
+          <p className="text-4xl font-bold text-text-primary relative z-10">{referralCount}</p>
         </div>
         
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 flex flex-col relative overflow-hidden group">
@@ -80,7 +101,7 @@ export default async function AdminDashboardPage() {
             </div>
             <h2 className="text-sm font-semibold text-text-secondary uppercase tracking-wider">Contact Enquiries</h2>
           </div>
-          <p className="text-4xl font-bold text-text-primary relative z-10">{contactCount ?? 0}</p>
+          <p className="text-4xl font-bold text-text-primary relative z-10">{contactCount}</p>
         </div>
       </div>
       
@@ -94,50 +115,32 @@ export default async function AdminDashboardPage() {
         
         {/* Beautiful Activity Feed */}
         <div className="divide-y divide-gray-100">
-          <div className="px-6 py-4 flex items-start gap-4 hover:bg-gray-50 transition-colors">
-            <div className="w-10 h-10 rounded-full bg-brand-surface-blue flex items-center justify-center shrink-0">
-              <FileText className="w-5 h-5 text-brand-primary" />
+          {activities.length === 0 ? (
+            <div className="px-6 py-8 text-center text-text-secondary">
+              No recent activity found.
             </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-text-primary">
-                New referral received from <span className="font-bold">Sarah Jenkins</span>
-              </p>
-              <p className="text-sm text-text-secondary mt-0.5">Service Requested: In-Home Support</p>
-            </div>
-            <div className="text-xs text-text-muted whitespace-nowrap">2 hours ago</div>
-          </div>
-          
-          <div className="px-6 py-4 flex items-start gap-4 hover:bg-gray-50 transition-colors">
-            <div className="w-10 h-10 rounded-full bg-brand-surface-pink flex items-center justify-center shrink-0">
-              <MessageSquare className="w-5 h-5 text-brand-magenta" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-text-primary">
-                New contact enquiry from <span className="font-bold">David Mitchell</span>
-              </p>
-              <p className="text-sm text-text-secondary mt-0.5">"Hi, I'm looking for home support for my mother..."</p>
-            </div>
-            <div className="text-xs text-text-muted whitespace-nowrap">5 hours ago</div>
-          </div>
-          
-          <div className="px-6 py-4 flex items-start gap-4 hover:bg-gray-50 transition-colors">
-            <div className="w-10 h-10 rounded-full bg-brand-surface-teal flex items-center justify-center shrink-0">
-              <Activity className="w-5 h-5 text-brand-teal" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-sm font-medium text-text-primary">
-                System backup completed successfully
-              </p>
-              <p className="text-sm text-text-secondary mt-0.5">All database records have been securely backed up.</p>
-            </div>
-            <div className="text-xs text-text-muted whitespace-nowrap">Yesterday, 11:30 PM</div>
-          </div>
-          
-          <div className="px-6 py-4 border-t border-gray-100 text-center">
-            <button className="text-brand-primary hover:text-brand-primary-dark font-medium text-sm">
-              View all activity
-            </button>
-          </div>
+          ) : (
+            activities.map(activity => (
+              <div key={activity.id} className="px-6 py-4 flex items-start gap-4 hover:bg-gray-50 transition-colors">
+                <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${
+                  activity.type === 'referral' ? 'bg-brand-surface-blue' : 'bg-brand-surface-pink'
+                }`}>
+                  {activity.type === 'referral' ? (
+                    <FileText className="w-5 h-5 text-brand-primary" />
+                  ) : (
+                    <MessageSquare className="w-5 h-5 text-brand-magenta" />
+                  )}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-text-primary">
+                    {activity.title}
+                  </p>
+                  <p className="text-sm text-text-secondary mt-0.5">{activity.subtitle}</p>
+                </div>
+                <div className="text-xs text-text-muted whitespace-nowrap">{activity.date.toLocaleString()}</div>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </div>
