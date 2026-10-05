@@ -1,0 +1,21 @@
+import { createClient } from '@supabase/supabase-js';
+
+export function createAdminClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  if (!supabaseUrl || !serviceRoleKey) {
+    throw new Error('Missing Supabase Service Role environment variables');
+  }
+
+  // Create a supabase client with the service role key.
+  // This bypasses Row Level Security (RLS) entirely, so it should ONLY
+  // be used in trusted server environments (like secure Server Actions)
+  // AFTER performing validations (like Cloudflare Turnstile).
+  return createClient(supabaseUrl, serviceRoleKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false,
+    },
+  });
+}

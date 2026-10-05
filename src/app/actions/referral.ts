@@ -2,7 +2,7 @@
 
 import { z } from "zod";
 import { verifyTurnstileToken } from "@/lib/turnstile";
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 import { sendReferralNotification } from "@/lib/email";
 import { rateLimit } from "@/lib/rate-limit";
 
@@ -48,8 +48,8 @@ export async function submitReferralForm(formData: FormData) {
       return { success: false, error: "Too many requests. Please try again later." };
     }
 
-    // 4. Insert into Supabase
-    const supabase = await createClient();
+    // 4. Insert into Supabase securely using Service Role (bypassing public insert)
+    const supabase = createAdminClient();
     const { error: dbError } = await supabase
       .from("referrals")
       .insert([dbData]);
