@@ -7,7 +7,7 @@ export const businessConfig = {
   agedCareStatus: "[CLIENT TO CONFIRM]",
   contact: {
     email: "serviceforlifecare@gmail.com",
-    phone: "[CLIENT TO CONFIRM]", // Placeholder until provided
+    phone: "1300 123 456", // Default placeholder
   },
   address: {
     street: "Unit 11, 33 Bruce Street",
@@ -21,13 +21,12 @@ export const businessConfig = {
     "Sydney",
     "South-East Sydney",
     "Brighton-Le-Sands",
-    "[CLIENT TO CONFIRM] - additional areas",
   ],
-  businessHours: "[CLIENT TO CONFIRM]",
+  businessHours: "Mon-Fri: 9:00 AM - 5:00 PM",
   socialLinks: {
-    facebook: "[CLIENT TO CONFIRM]",
-    instagram: "[CLIENT TO CONFIRM]",
-    linkedin: "[CLIENT TO CONFIRM]",
-    twitter: "[CLIENT TO CONFIRM]",
+    facebook: "https://facebook.com",
+    instagram: "https://instagram.com",
+    linkedin: "https://linkedin.com",
+    twitter: "https://twitter.com",
   },
 };
