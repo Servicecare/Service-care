@@ -43,7 +43,7 @@ export default async function AdminLayout({
       {/* Sidebar */}
       <aside className="w-64 bg-white border-r border-gray-200 flex flex-col">
         <div className="h-16 flex items-center px-6 border-b border-gray-200">
-          <span className="font-heading font-bold text-lg text-brand-500">Admin Portal</span>
+          <span className="font-heading font-bold text-lg text-brand-primary">Admin Portal</span>
         </div>
         <nav className="flex-1 px-4 py-6 space-y-2">
           <Link href="/admin" className="flex items-center gap-3 px-3 py-2 text-sm font-medium rounded-md text-text-primary hover:bg-gray-50">

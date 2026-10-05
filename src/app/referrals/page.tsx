@@ -10,7 +10,7 @@ export const metadata = {
 export default function ReferralsPage() {
   return (
     <div className="flex flex-col min-h-[70vh]">
-      <AnimatedSection className="bg-brand-50 pt-16 pb-12 lg:pt-24 lg:pb-20 border-b border-gray-100">
+      <AnimatedSection className="bg-brand-surface-blue pt-16 pb-12 lg:pt-24 lg:pb-20 border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold font-heading mb-6 text-text-primary text-balance">Make a Referral</h1>

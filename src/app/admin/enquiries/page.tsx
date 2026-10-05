@@ -16,8 +16,8 @@ export default function EnquiriesPage() {
       
       <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
         <div className="p-12 flex flex-col items-center justify-center text-center">
-          <div className="w-20 h-20 bg-accent-50 rounded-full flex items-center justify-center mb-6">
-            <MessageSquare className="w-10 h-10 text-accent-300" />
+          <div className="w-20 h-20 bg-brand-magenta rounded-full flex items-center justify-center mb-6">
+            <MessageSquare className="w-10 h-10 text-brand-magenta" />
           </div>
           <h2 className="text-xl font-semibold text-text-primary mb-2">No Enquiries Yet</h2>
           <p className="text-text-secondary max-w-sm mb-6">

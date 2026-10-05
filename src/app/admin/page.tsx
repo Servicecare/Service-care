@@ -59,11 +59,11 @@ export default async function AdminDashboardPage() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 flex flex-col relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-            <FileText className="w-16 h-16 text-brand-600" />
+            <FileText className="w-16 h-16 text-brand-primary" />
           </div>
           <div className="flex items-center gap-3 mb-4 relative z-10">
-            <div className="p-2 bg-brand-50 rounded-lg">
-              <FileText className="w-5 h-5 text-brand-600" />
+            <div className="p-2 bg-brand-surface-blue rounded-lg">
+              <FileText className="w-5 h-5 text-brand-primary" />
             </div>
             <h2 className="text-sm font-semibold text-text-secondary uppercase tracking-wider">Total Referrals</h2>
           </div>
@@ -72,11 +72,11 @@ export default async function AdminDashboardPage() {
         
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 flex flex-col relative overflow-hidden group">
           <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-            <MessageSquare className="w-16 h-16 text-accent-500" />
+            <MessageSquare className="w-16 h-16 text-brand-magenta" />
           </div>
           <div className="flex items-center gap-3 mb-4 relative z-10">
-            <div className="p-2 bg-accent-50 rounded-lg">
-              <MessageSquare className="w-5 h-5 text-accent-600" />
+            <div className="p-2 bg-brand-magenta rounded-lg">
+              <MessageSquare className="w-5 h-5 text-brand-magenta" />
             </div>
             <h2 className="text-sm font-semibold text-text-secondary uppercase tracking-wider">Contact Enquiries</h2>
           </div>

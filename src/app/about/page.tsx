@@ -9,7 +9,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-[70vh]">
-      <AnimatedSection className="bg-brand-50 pt-16 pb-12 lg:pt-24 lg:pb-20 border-b border-gray-100">
+      <AnimatedSection className="bg-brand-surface-blue pt-16 pb-12 lg:pt-24 lg:pb-20 border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-2xl">
             <h1 className="text-4xl sm:text-5xl font-bold font-heading mb-6 text-text-primary text-balance">About Us</h1>
@@ -26,8 +26,8 @@ export default function AboutPage() {
             <p>
               We are an authentic, dedicated team providing premium care in {businessConfig.serviceAreas[0]} and surrounding areas.
             </p>
-            <div className="bg-brand-50 p-6 rounded-xl border border-brand-100 my-8">
-              <p className="text-sm text-brand-700 font-medium m-0">
+            <div className="bg-brand-surface-blue p-6 rounded-xl border border-brand-border my-8">
+              <p className="text-sm text-brand-primary-dark font-medium m-0">
                 [CLIENT TO CONFIRM: Add specific founder experience, staff qualifications, and history here.]
               </p>
             </div>

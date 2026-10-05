@@ -1,35 +1,36 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand Palette */
-  --color-brand-50: #f2f6f5;
-  --color-brand-100: #e0ebe7;
-  --color-brand-200: #c2d6cf;
-  --color-brand-300: #99bcaf;
-  --color-brand-400: #6c9b8b;
-  --color-brand-500: #2d5d4e;
-  --color-brand-600: #214c3f;
-  --color-brand-700: #1b3d33;
-  --color-brand-800: #163028;
-  --color-brand-900: #122721;
+  /* Brand Palette - Final Approved Service for Life Care Identity */
+  --color-brand-primary: #0B4F8A;
+  --color-brand-primary-dark: #083B66;
+  --color-brand-blue: #1478C9;
+  
+  --color-brand-magenta: #D81B60;
+  --color-brand-teal: #149C97;
+  --color-brand-red: #E53935;
+  
+  --color-brand-warm-white: #FAFCFE;
+  --color-brand-pure-white: #FFFFFF;
 
-  /* Accent Palette */
-  --color-accent-50: #fdf6f4;
-  --color-accent-100: #faebe6;
-  --color-accent-200: #f3d2c8;
-  --color-accent-300: #ecb0a0;
-  --color-accent-400: #e4866f;
-  --color-accent-500: #d96c4e;
-  --color-accent-600: #c15031;
-  --color-accent-700: #a13e25;
-  --color-accent-800: #853521;
-  --color-accent-900: #6f2f1f;
+  /* Surfaces */
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #FAFCFE;
+  --color-surface-blue: #F1F7FC;
+  --color-surface-teal: #F0FAF9;
+  --color-surface-pink: #FFF4F8;
 
+  /* Text & Border */
+  --color-text-primary: #102033;
+  --color-text-secondary: #526273;
+  --color-text-muted: #718096;
+  --color-border: #E2E8F0;
+  
   /* Semantic */
-  --color-surface: #ffffff;
-  --color-background: #fafafa;
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #475569;
+  --color-success: #149C97;
+  --color-warning: #F59E0B;
+  --color-error: #E53935;
+  --color-focus: #1478C9;
   
   /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

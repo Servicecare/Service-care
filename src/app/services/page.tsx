@@ -10,7 +10,7 @@ export const metadata = {
 export default function ServicesPage() {
   return (
     <div className="flex flex-col min-h-[70vh]">
-      <AnimatedSection className="bg-brand-50 pt-16 pb-12 lg:pt-24 lg:pb-20 border-b border-gray-100">
+      <AnimatedSection className="bg-brand-surface-blue pt-16 pb-12 lg:pt-24 lg:pb-20 border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-2xl">
             <h1 className="text-4xl sm:text-5xl font-bold font-heading mb-6 text-text-primary text-balance">Our Services</h1>
@@ -32,7 +32,7 @@ export default function ServicesPage() {
               <ul className="list-none p-0 mt-6 space-y-3">
                 {["Personal care", "Meal preparation", "Household tasks"].map((item, i) => (
                   <li key={i} className="flex gap-2 items-center m-0">
-                     <CheckCircle2 className="w-5 h-5 text-brand-600 flex-shrink-0" />
+                     <CheckCircle2 className="w-5 h-5 text-brand-primary flex-shrink-0" />
                      <span>{item}</span>
                   </li>
                 ))}
@@ -47,7 +47,7 @@ export default function ServicesPage() {
               <ul className="list-none p-0 mt-6 space-y-3">
                 {["Social outings", "Transport assistance", "Hobby groups"].map((item, i) => (
                   <li key={i} className="flex gap-2 items-center m-0">
-                     <CheckCircle2 className="w-5 h-5 text-brand-600 flex-shrink-0" />
+                     <CheckCircle2 className="w-5 h-5 text-brand-primary flex-shrink-0" />
                      <span>{item}</span>
                   </li>
                 ))}
@@ -62,7 +62,7 @@ export default function ServicesPage() {
               <ul className="list-none p-0 mt-6 space-y-3">
                 {["Life skills training", "Budgeting assistance", "Travel training"].map((item, i) => (
                   <li key={i} className="flex gap-2 items-center m-0">
-                     <CheckCircle2 className="w-5 h-5 text-brand-600 flex-shrink-0" />
+                     <CheckCircle2 className="w-5 h-5 text-brand-primary flex-shrink-0" />
                      <span>{item}</span>
                   </li>
                 ))}
@@ -70,8 +70,8 @@ export default function ServicesPage() {
             </div>
           </div>
           
-          <div className="mt-16 bg-brand-50 p-6 rounded-xl border border-brand-100 max-w-3xl">
-             <p className="text-sm text-brand-700 font-medium m-0">
+          <div className="mt-16 bg-brand-surface-blue p-6 rounded-xl border border-brand-border max-w-3xl">
+             <p className="text-sm text-brand-primary-dark font-medium m-0">
                 [CLIENT TO CONFIRM: Add exact service list, NDIS item numbers, and any specific limitations here.]
              </p>
           </div>

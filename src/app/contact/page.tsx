@@ -14,7 +14,7 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col min-h-[70vh]">
-      <AnimatedSection className="bg-brand-50 pt-16 pb-12 lg:pt-24 lg:pb-20 border-b border-gray-100">
+      <AnimatedSection className="bg-brand-surface-blue pt-16 pb-12 lg:pt-24 lg:pb-20 border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 text-center">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold font-heading mb-6 text-text-primary text-balance">Contact Us</h1>
@@ -32,13 +32,13 @@ export default function ContactPage() {
               <h2 className="text-2xl font-bold font-heading mb-8 text-text-primary">Get in Touch</h2>
               <ul className="space-y-8 text-text-primary">
                 <li className="flex gap-4">
-                  <div className="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5 text-brand-600" />
+                  <div className="w-10 h-10 rounded-full bg-brand-surface-blue flex items-center justify-center flex-shrink-0">
+                    <Mail className="w-5 h-5 text-brand-primary" />
                   </div>
                   <div>
                     <strong className="block font-heading text-lg mb-1">Email</strong>
                     {isEmailConfigured ? (
-                      <a href={`mailto:${businessConfig.contact.email}`} className="text-text-secondary hover:text-brand-600 transition-colors">
+                      <a href={`mailto:${businessConfig.contact.email}`} className="text-text-secondary hover:text-brand-primary transition-colors">
                         {businessConfig.contact.email}
                       </a>
                     ) : (
@@ -47,13 +47,13 @@ export default function ContactPage() {
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <div className="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-5 h-5 text-brand-600" />
+                  <div className="w-10 h-10 rounded-full bg-brand-surface-blue flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-5 h-5 text-brand-primary" />
                   </div>
                   <div>
                     <strong className="block font-heading text-lg mb-1">Phone</strong>
                     {isPhoneConfigured ? (
-                      <a href={`tel:${businessConfig.contact.phone.replace(/[^0-9+]/g, '')}`} className="text-text-secondary hover:text-brand-600 transition-colors">
+                      <a href={`tel:${businessConfig.contact.phone.replace(/[^0-9+]/g, '')}`} className="text-text-secondary hover:text-brand-primary transition-colors">
                         {businessConfig.contact.phone}
                       </a>
                     ) : (
@@ -62,8 +62,8 @@ export default function ContactPage() {
                   </div>
                 </li>
                 <li className="flex gap-4">
-                  <div className="w-10 h-10 rounded-full bg-brand-50 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-5 h-5 text-brand-600" />
+                  <div className="w-10 h-10 rounded-full bg-brand-surface-blue flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-5 h-5 text-brand-primary" />
                   </div>
                   <div>
                     <strong className="block font-heading text-lg mb-1">Address</strong>

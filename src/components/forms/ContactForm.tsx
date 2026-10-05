@@ -66,14 +66,14 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <AnimatedFormAlert isVisible={isSuccess} className="bg-brand-50 border border-brand-500 rounded-xl p-8 text-center">
-        <h3 className="text-xl font-bold text-brand-500 mb-2">Message Sent Successfully</h3>
+      <AnimatedFormAlert isVisible={isSuccess} className="bg-brand-surface-blue border border-brand-primary rounded-xl p-8 text-center">
+        <h3 className="text-xl font-bold text-brand-primary mb-2">Message Sent Successfully</h3>
         <p className="text-text-secondary">
           Thank you for reaching out. We have received your message and will get back to you shortly.
         </p>
         <button 
           onClick={() => setIsSuccess(false)}
-          className="mt-6 text-brand-500 font-medium hover:underline"
+          className="mt-6 text-brand-primary font-medium hover:underline"
         >
           Send another message
         </button>
@@ -98,7 +98,7 @@ export function ContactForm() {
             {...register("name")}
             aria-invalid={errors.name ? "true" : "false"}
             aria-describedby={errors.name ? "name-error" : undefined}
-            className="block w-full rounded-md border-0 py-3 text-text-primary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 py-3 text-text-primary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-focus sm:text-sm sm:leading-6"
           />
         </div>
         {errors.name && (
@@ -119,7 +119,7 @@ export function ContactForm() {
             {...register("email")}
             aria-invalid={errors.email ? "true" : "false"}
             aria-describedby={errors.email ? "email-error" : undefined}
-            className="block w-full rounded-md border-0 py-3 text-text-primary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 py-3 text-text-primary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-focus sm:text-sm sm:leading-6"
           />
         </div>
         {errors.email && (
@@ -138,7 +138,7 @@ export function ContactForm() {
             id="phone"
             type="tel"
             {...register("phone")}
-            className="block w-full rounded-md border-0 py-3 text-text-primary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm sm:leading-6"
+            className="block w-full rounded-md border-0 py-3 text-text-primary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-focus sm:text-sm sm:leading-6"
           />
         </div>
       </div>
@@ -154,7 +154,7 @@ export function ContactForm() {
             {...register("message")}
             aria-invalid={errors.message ? "true" : "false"}
             aria-describedby={errors.message ? "message-error" : undefined}
-            className="block w-full rounded-md border-0 py-3 text-text-primary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-500 sm:text-sm sm:leading-6 resize-y"
+            className="block w-full rounded-md border-0 py-3 text-text-primary shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-focus sm:text-sm sm:leading-6 resize-y"
           />
         </div>
         {errors.message && (
@@ -178,7 +178,7 @@ export function ContactForm() {
         <AnimatedButton
           type="submit"
           disabled={isSubmitting || !turnstileToken}
-          className="rounded-full bg-brand-500 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-500/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto flex items-center justify-center min-w-[140px]"
+          className="rounded-full bg-brand-primary px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-focus transition-all disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto flex items-center justify-center min-w-[140px]"
         >
           {isSubmitting ? (
             <span className="flex items-center gap-2">

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { businessConfig } from "@/config/business";
 import { MobileNav } from "./MobileNav";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export function Navbar() {
   const pathname = usePathname();
@@ -26,8 +27,16 @@ export function Navbar() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
         {/* Logo */}
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 font-heading text-2xl font-bold text-brand-600 hover:text-brand-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-md">
-            {businessConfig.companyName}
+          <Link href="/" className="-m-1.5 p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-md">
+            <span className="sr-only">{businessConfig.companyName}</span>
+            <Image 
+              src="/brand/service-for-life-care-logo.png" 
+              alt={`${businessConfig.companyName} Logo`}
+              width={240}
+              height={70}
+              className="h-12 w-auto object-contain"
+              priority
+            />
           </Link>
         </div>
 
@@ -40,8 +49,8 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "text-sm font-medium leading-6 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-md px-2 py-1 -mx-2",
-                  isActive ? "text-brand-600" : "text-text-primary hover:text-brand-600"
+                  "text-sm font-medium leading-6 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary rounded-md px-2 py-1 -mx-2",
+                  isActive ? "text-brand-primary font-semibold" : "text-text-primary hover:text-brand-blue"
                 )}
                 aria-current={isActive ? "page" : undefined}
               >
@@ -55,9 +64,9 @@ export function Navbar() {
         <div className="flex flex-1 items-center justify-end gap-4 lg:gap-x-6">
           <Link 
             href="/contact" 
-            className="hidden rounded-full bg-brand-600 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-all active:scale-[0.98] lg:block"
+            className="hidden rounded-full bg-brand-primary px-6 py-2.5 text-sm font-semibold text-brand-warm-white shadow-sm hover:bg-brand-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-all active:scale-[0.98] lg:block"
           >
-            Get Started
+            Get Support
           </Link>
           <MobileNav />
         </div>

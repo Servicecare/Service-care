@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import { businessConfig } from "@/config/business";
 
 export function MobileNav() {
@@ -49,8 +50,15 @@ export function MobileNav() {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
             >
               <div className="flex items-center justify-between">
-                <Link href="/" className="-m-1.5 p-1.5 font-heading text-2xl font-bold text-brand-500" onClick={closeMenu}>
-                  {businessConfig.companyName}
+                <Link href="/" className="-m-1.5 p-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-md" onClick={closeMenu}>
+                  <span className="sr-only">{businessConfig.companyName}</span>
+                  <Image 
+                    src="/brand/service-for-life-care-logo.png" 
+                    alt={`${businessConfig.companyName} Logo`}
+                    width={180}
+                    height={52}
+                    className="h-10 w-auto object-contain"
+                  />
                 </Link>
                 <button
                   type="button"
@@ -78,10 +86,10 @@ export function MobileNav() {
                   <div className="py-6">
                     <Link
                       href="/contact"
-                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-text-primary hover:bg-gray-50"
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-text-primary hover:bg-gray-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus"
                       onClick={closeMenu}
                     >
-                      Get Started
+                      Get Support
                     </Link>
                   </div>
                 </div>

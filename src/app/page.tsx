@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* 1. Hero Section */}
-      <section className="relative w-full bg-brand-50 pt-12 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
+      <section className="relative w-full bg-brand-surface-blue pt-12 pb-16 lg:pt-16 lg:pb-24 overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 flex flex-col lg:flex-row items-center gap-12">
           <AnimatedHero className="max-w-2xl lg:w-1/2">
             <AnimatedHeroItem>
@@ -27,13 +27,13 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link 
                   href="/contact" 
-                  className="rounded-full bg-brand-600 px-8 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-all active:scale-[0.98]"
+                  className="rounded-full bg-brand-primary px-8 py-3.5 text-center text-sm font-semibold text-brand-warm-white shadow-sm hover:bg-brand-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-all active:scale-[0.98]"
                 >
-                  Get Started
+                  Get Support
                 </Link>
                 <Link 
                   href="/services" 
-                  className="rounded-full border border-brand-200 bg-white px-8 py-3.5 text-center text-sm font-semibold text-text-primary hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600 transition-all"
+                  className="rounded-full border border-brand-primary bg-white px-8 py-3.5 text-center text-sm font-semibold text-brand-primary hover:bg-brand-surface-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary transition-all"
                 >
                   Explore Services
                 </Link>
@@ -59,13 +59,13 @@ export default function HomePage() {
       <AnimatedSection type="fade" className="bg-white py-6 border-b border-gray-100">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-            <div className="flex items-center gap-3 bg-brand-50 px-5 py-2.5 rounded-full">
-              <CheckCircle2 className="h-5 w-5 text-brand-600" />
-              <span className="text-sm font-semibold text-text-primary">{businessConfig.ndisStatus}</span>
+            <div className="flex items-center gap-3 bg-brand-surface-teal px-5 py-2.5 rounded-full border border-brand-teal/20">
+              <CheckCircle2 className="h-5 w-5 text-brand-teal" />
+              <span className="text-sm font-semibold text-brand-primary-dark">{businessConfig.ndisStatus}</span>
             </div>
-            <div className="flex items-center gap-3 bg-brand-50 px-5 py-2.5 rounded-full">
-              <MapPin className="h-5 w-5 text-brand-600" />
-              <span className="text-sm font-semibold text-text-primary">Servicing {businessConfig.serviceAreas[0]}</span>
+            <div className="flex items-center gap-3 bg-brand-surface-teal px-5 py-2.5 rounded-full border border-brand-teal/20">
+              <MapPin className="h-5 w-5 text-brand-teal" />
+              <span className="text-sm font-semibold text-brand-primary-dark">Servicing {businessConfig.serviceAreas[0]}</span>
             </div>
           </div>
         </div>
@@ -75,8 +75,8 @@ export default function HomePage() {
       <AnimatedSection className="py-16 lg:py-24 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-2xl text-center mx-auto mb-12 lg:mb-16">
-            <h2 className="text-brand-600 font-semibold tracking-wide uppercase text-sm">Our Services</h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-text-primary sm:text-4xl font-heading">
+            <h2 className="text-brand-magenta font-semibold tracking-wide uppercase text-sm">Our Services</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-brand-primary-dark sm:text-4xl font-heading">
               Support tailored to you
             </p>
           </div>
@@ -87,8 +87,8 @@ export default function HomePage() {
               { title: "Community Access", desc: "Support to engage in social, recreational, and community activities.", icon: Users },
               { title: "Capacity Building", desc: "Skill development to enhance your independence and achieve your goals.", icon: Heart },
             ].map((service, idx) => (
-              <AnimatedCard key={idx} delay={idx * 0.1} className="relative group rounded-xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition-shadow">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 mb-6 text-brand-600 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+              <AnimatedCard key={idx} delay={idx * 0.1} className="relative group rounded-xl border border-border bg-surface p-8 shadow-sm hover:shadow-md transition-shadow">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-surface-blue mb-6 text-brand-primary group-hover:bg-brand-primary group-hover:text-brand-warm-white transition-colors">
                   <service.icon className="h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-semibold leading-7 text-text-primary mb-3">
@@ -97,7 +97,7 @@ export default function HomePage() {
                 <p className="text-base leading-7 text-text-secondary mb-6">
                   {service.desc}
                 </p>
-                <Link href="/services" className="text-sm font-semibold leading-6 text-brand-600 flex items-center gap-1 group-hover:gap-2 transition-all focus-visible:outline-none focus-visible:underline">
+                <Link href="/services" className="text-sm font-semibold leading-6 text-brand-primary flex items-center gap-1 group-hover:gap-2 transition-all focus-visible:outline-none focus-visible:underline">
                   Learn more <ArrowRight className="h-4 w-4" />
                 </Link>
               </AnimatedCard>
@@ -107,7 +107,7 @@ export default function HomePage() {
       </AnimatedSection>
 
       {/* 4. Care Approach Section */}
-      <AnimatedSection className="py-16 lg:py-24 bg-brand-50 overflow-hidden">
+      <AnimatedSection className="py-16 lg:py-24 bg-brand-surface-blue overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="relative rounded-2xl overflow-hidden aspect-square lg:aspect-[4/3] bg-gray-200 shadow-xl max-h-[500px]">
@@ -134,7 +134,7 @@ export default function HomePage() {
                   "Culturally safe and inclusive practices"
                 ].map((item, idx) => (
                   <li key={idx} className="flex gap-3 items-center">
-                    <CheckCircle2 className="h-5 w-5 text-brand-600 flex-shrink-0" />
+                    <CheckCircle2 className="h-5 w-5 text-brand-teal flex-shrink-0" />
                     <span className="text-text-primary font-medium">{item}</span>
                   </li>
                 ))}
@@ -166,7 +166,7 @@ export default function HomePage() {
               </p>
               <Link 
                 href="/services#community-access" 
-                className="rounded-full bg-brand-600 px-8 py-3.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-700 transition-all inline-block active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-600"
+                className="rounded-full bg-brand-primary-dark px-8 py-3.5 text-center text-sm font-semibold text-brand-warm-white shadow-sm hover:bg-brand-primary transition-all inline-block active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
               >
                 Discover Community Access
               </Link>
@@ -176,18 +176,18 @@ export default function HomePage() {
       </AnimatedSection>
 
       {/* 6. Referral CTA */}
-      <AnimatedSection type="fade" className="bg-brand-900 py-16 sm:py-20 lg:py-24 relative overflow-hidden">
+      <AnimatedSection type="fade" className="bg-brand-primary-dark py-16 sm:py-20 lg:py-24 relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl font-heading">
+          <h2 className="text-3xl font-bold tracking-tight text-brand-warm-white sm:text-4xl font-heading">
             Make a Referral
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-brand-100">
+          <p className="mx-auto mt-4 max-w-xl text-lg leading-8 text-brand-surface-blue opacity-90">
             Whether you are referring yourself, a family member, or a participant, our streamlined process ensures support starts as smoothly as possible.
           </p>
           <div className="mt-8 flex items-center justify-center gap-x-6">
             <Link
               href="/referrals"
-              className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-brand-900 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all active:scale-[0.98]"
+              className="rounded-full bg-brand-warm-white px-8 py-3.5 text-sm font-semibold text-brand-primary-dark shadow-sm hover:bg-brand-surface-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white transition-all active:scale-[0.98]"
             >
               Start a Referral
             </Link>

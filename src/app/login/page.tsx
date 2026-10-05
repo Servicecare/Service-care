@@ -59,7 +59,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex bg-white">
       {/* Left Column: Brand/Image */}
-      <div className="hidden lg:flex lg:w-1/2 relative bg-brand-50 items-center justify-center p-12 overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 relative bg-brand-surface-blue items-center justify-center p-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
             src="/images/admin_login_bg.jpg"
@@ -68,7 +68,7 @@ export default function LoginPage() {
             className="object-cover opacity-100"
             priority
           />
-          <div className="absolute inset-0 bg-brand-900/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-brand-primary-dark/60 mix-blend-multiply" />
           <div className="absolute inset-0 bg-gradient-to-t from-brand-900/90 via-brand-900/40 to-brand-900/10" />
         </div>
         
@@ -79,13 +79,13 @@ export default function LoginPage() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-semibold mb-8 shadow-xl">
-              <ShieldCheck className="w-4 h-4 text-brand-200" />
+              <ShieldCheck className="w-4 h-4 text-brand-muted" />
               Secure Administrative Access
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold font-heading mb-6 text-balance leading-tight">
               Streamline your care operations.
             </h1>
-            <p className="text-lg text-brand-100 opacity-90 text-balance leading-relaxed max-w-md">
+            <p className="text-lg text-brand-surface-blue opacity-90 text-balance leading-relaxed max-w-md">
               Securely manage enquiries, participant referrals, and daily operations for {businessConfig.companyName}.
             </p>
           </motion.div>
@@ -96,7 +96,7 @@ export default function LoginPage() {
       <div className="w-full lg:w-1/2 flex flex-col justify-center px-4 sm:px-12 lg:px-24 xl:px-32 relative py-12">
         <Link 
           href="/" 
-          className="absolute top-8 left-4 sm:left-12 lg:left-24 inline-flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-brand-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-md p-1"
+          className="absolute top-8 left-4 sm:left-12 lg:left-24 inline-flex items-center gap-2 text-sm font-medium text-text-secondary hover:text-brand-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-md p-1"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to website
@@ -139,7 +139,7 @@ export default function LoginPage() {
                 type="email"
                 autoComplete="email"
                 required
-                className="block w-full rounded-lg border border-gray-300 px-4 py-3 text-text-primary placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition-all sm:text-sm bg-white"
+                className="block w-full rounded-lg border border-gray-300 px-4 py-3 text-text-primary placeholder-gray-400 focus:border-brand-primary focus:ring-2 focus:ring-brand-focus/20 focus:outline-none transition-all sm:text-sm bg-white"
                 placeholder="name@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -157,7 +157,7 @@ export default function LoginPage() {
                   type={showPassword ? "text" : "password"}
                   autoComplete="current-password"
                   required
-                  className="block w-full rounded-lg border border-gray-300 px-4 py-3 pr-12 text-text-primary placeholder-gray-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/20 focus:outline-none transition-all sm:text-sm bg-white"
+                  className="block w-full rounded-lg border border-gray-300 px-4 py-3 pr-12 text-text-primary placeholder-gray-400 focus:border-brand-primary focus:ring-2 focus:ring-brand-focus/20 focus:outline-none transition-all sm:text-sm bg-white"
                   placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -166,7 +166,7 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 flex items-center pr-3.5 text-gray-400 hover:text-gray-600 focus:outline-none focus-visible:text-brand-500 transition-colors rounded-r-lg"
+                  className="absolute inset-y-0 right-0 flex items-center pr-3.5 text-gray-400 hover:text-gray-600 focus:outline-none focus-visible:text-brand-primary transition-colors rounded-r-lg"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                   disabled={isLoading}
                 >
@@ -182,7 +182,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full flex items-center justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 disabled:opacity-70 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
+              className="w-full flex items-center justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-semibold text-white bg-brand-primary hover:bg-brand-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-focus disabled:opacity-70 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
             >
               {isLoading ? (
                 <>
@@ -210,7 +210,7 @@ export default function LoginPage() {
                 onClick={handleGoogleLogin}
                 type="button"
                 disabled={isLoading}
-                className="w-full flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-semibold text-text-primary bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 disabled:opacity-70 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
+                className="w-full flex items-center justify-center py-3 px-4 border border-gray-300 rounded-lg shadow-sm text-sm font-semibold text-text-primary bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-focus disabled:opacity-70 disabled:cursor-not-allowed transition-all active:scale-[0.98]"
               >
                 <svg className="w-5 h-5 mr-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
