@@ -15,12 +15,12 @@ export default function HomePage() {
           <AnimatedHero className="max-w-2xl lg:w-1/2">
             <AnimatedHeroItem>
               <h1 className="font-heading text-4xl sm:text-5xl font-bold tracking-tight text-text-primary text-balance mb-6">
-                Empowering your independence with premium care.
+                Premium, compassionate care designed for your independence.
               </h1>
             </AnimatedHeroItem>
             <AnimatedHeroItem>
               <p className="mt-4 text-lg leading-8 text-text-secondary text-balance mb-8 max-w-xl">
-                {businessConfig.companyName} provides high-quality, personalised support to help you live life with confidence in {businessConfig.serviceAreas[0]} and surrounding areas.
+                At {businessConfig.companyName}, we provide exceptional, tailored support services to help you or your loved ones live with dignity and confidence across {businessConfig.serviceAreas[0]} and surrounding regions.
               </p>
             </AnimatedHeroItem>
             <AnimatedHeroItem>

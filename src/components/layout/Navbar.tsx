@@ -9,6 +9,10 @@ import { cn } from "@/lib/utils";
 export function Navbar() {
   const pathname = usePathname();
 
+  if (pathname.startsWith("/admin") || pathname.startsWith("/login")) {
+    return null;
+  }
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
