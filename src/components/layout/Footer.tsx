@@ -18,14 +18,14 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-6">
-            <Link href="/" className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-md">
+            <Link href="/" className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-focus rounded-xl bg-white p-3 shadow-sm">
               <span className="sr-only">{businessConfig.companyName}</span>
               <Image 
                 src="/brand/service-for-life-care-logo.png" 
                 alt={`${businessConfig.companyName} Logo`}
                 width={320}
                 height={94}
-                className="h-16 md:h-20 w-auto object-contain brightness-0 invert"
+                className="h-12 md:h-16 w-auto object-contain"
                 priority={false}
               />
             </Link>
